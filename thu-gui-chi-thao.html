@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bức thư cho chị Thảo</title>
+<style>
+body{margin:0;overflow:hidden;display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(to bottom,#ffe6f0,#fff0f5);font-family:cursive;position:relative}.hidden{display:none}a#showCard{padding:12px 20px;border-radius:8px;background:#ff6699;color:#fff;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,.2);transition:background .2s;z-index:2}a#showCard:hover{background:#ff4d88}.envelope{position:relative;width:340px;height:240px;background:#ff99bb;border-radius:12px;box-shadow:0 6px 15px rgba(0,0,0,.2);overflow:hidden;border:4px dashed #fff0f5}.flap{position:absolute;top:0;left:0;right:0;height:50%;background:#ff4d88;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s ease}.card{position:absolute;inset:12px;background:#fffdfa;border-radius:8px;border:2px solid #ffcce0;padding:20px;overflow-y:auto;transform:translateY(100%);transition:transform .6s ease;font-size:14px;line-height:1.5;background-image:radial-gradient(#ffccdd 1px,transparent 1px);background-size:10px 10px}.open .flap{transform:rotateX(-160deg)}.open .card{transform:translateY(0)}button.openBtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:10px 18px;border:none;border-radius:20px;background:#ff4d88;color:#fff;font-weight:bold;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.2);transition:background .2s;z-index:3}button.openBtn:hover{background:#e6005c}.flower{position:absolute;top:-50px;font-size:20px;animation:fall linear forwards;pointer-events:none}@keyframes fall{0%{transform:translateY(-50px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<a href="#" id="showCard">Bấm vào đây để xem thiệp 💌</a>
+<div class="envelope hidden" id="envelope">
+<div class="flap"></div>
+<div class="card"><p>Gửi chị Thảo,<br><br>Em chào chịii. Như chị muốn thì em đã viết cho chị bức thư này, lần đầu em viết thư nên có gì thiếu sótsót mong chị thông cảm ạ. Em cảm ơn chị đã giúp đỡ em trong 2 tháng vừa qua. Quán đấy là quán thứ 3 em làm từ khi qua Hàn nên em không có nhiều kinh nghiệm cho lắm, em cảm ơn cũng như phiền chị đã dạy việc cho em ạ.<br><br>Tính em rất ít nói, chỉ khi em cảm thấy người đó dễ gần nên em mới hay trêu như vậy, nhưng mà em chỉ trêu chứ không có ý xúc phạm hay gì cả, có mấy lần em trêu hơi quá em xin lỗi nhiều.<br><br>Tóm lại thì em cảm ơn chị đã chịu đựng và dạy việc cho em 2 tháng vừa qua ạ! 💖</p></div>
+<button class="openBtn">Mở thư</button>
+</div>
+<script>
+const link=document.getElementById('showCard'),envelope=document.getElementById('envelope'),openBtn=envelope.querySelector('.openBtn');
+link.addEventListener('click',e=>{e.preventDefault();link.classList.add('hidden');envelope.classList.remove('hidden')});
+openBtn.addEventListener('click',()=>{envelope.classList.add('open');openBtn.style.display='none';createFlowers(20)});
+function createFlowers(count){for(let i=0;i<count;i++){const f=document.createElement('div');f.classList.add('flower');f.textContent='🌸';f.style.left=Math.random()*window.innerWidth+'px';f.style.animationDuration=4+Math.random()*3+'s';document.body.appendChild(f);setTimeout(()=>f.remove(),7000)}}
+setInterval(()=>{const f=document.createElement('div');f.classList.add('flower');f.textContent='🌸';f.style.left=Math.random()*window.innerWidth+'px';f.style.animationDuration=5+Math.random()*3+'s';document.body.appendChild(f);setTimeout(()=>f.remove(),8000)},1000);
+</script>
+</body>
+</html>
